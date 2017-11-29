@@ -1,0 +1,20 @@
+@model CourseDTO
+
+<div class="col-sm-4">
+    <div class="panel course-listing">
+        <img class="thumb" src="@Model.CourseImageUrl">
+        <div class="panel-body">
+            <h3 class="text-dark">@Model.CourseTitle</h3>
+            <p>@Model.CourseDescription</p>
+            <a class="btn btn-primary" href="~/Membership/Course/@Model.CourseId">View Course</a>
+        </div>
+    </div>
+</div>
+
+@*@using (Html.BeginForm("Course", "Membership", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.CourseId, new { id = "HiddenCourseId" })
+
+    <input type = "submit" value = "Enter the value" />
+
+}*@ 

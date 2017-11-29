@@ -1,0 +1,25 @@
+@model UserCourseDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 class="admin-top-margin">Details</h2>
+
+<div>
+    <h4>Users and Courses</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.CourseId)</dt>
+        <dd>@Html.DisplayFor(model => model.CourseId)</dd>
+        <dt>@Html.DisplayNameFor(model => model.CourseTitle)</dt>
+        <dd>@Html.DisplayFor(model => model.CourseTitle)</dd>
+        <dt>@Html.DisplayNameFor(model => model.UserEmail)</dt>
+        <dd>@Html.DisplayFor(model => model.UserEmail)</dd>
+        <dt>@Html.DisplayNameFor(model => model.UserId)</dt>
+        <dd>@Html.DisplayFor(model => model.UserId)</dd>
+    </dl>
+</div>
+<div>
+    <button-container controller="@ViewContext.RouteData.Values["controller"].ToString()" actions="Index,Edit" id-userId="@Model.UserId" id-courseId="@Model.CourseId" descriptions="Back to List"></button-container>
+</div>

@@ -1,0 +1,32 @@
+@model IEnumerable<UserCourseDTO>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="admin-top-margin">Index</h2>
+
+<p>
+    <button-container controller="@ViewContext.RouteData.Values["controller"].ToString()" actions="Create" descriptions="Create New"></button-container>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>User</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CourseTitle)</td>
+                <td>@Html.DisplayFor(modelItem => item.UserEmail)</td>
+                <td class="button-col-width">
+                    <button-container controller="@ViewContext.RouteData.Values["controller"].ToString()" actions="Edit,Details,Delete" use-glyphs="true" id-userId="@item.UserId" id-courseId="@item.CourseId"></button-container>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

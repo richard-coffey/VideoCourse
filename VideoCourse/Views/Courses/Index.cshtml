@@ -1,0 +1,58 @@
+@model IEnumerable<VideoCourse.Entities.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="admin-top-margin">Index</h2>
+
+<p>
+    <button-container controller="@ViewContext.RouteData.Values["controller"].ToString()" actions="Create" descriptions="Create New"></button-container>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarqueeImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarqueeImageUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instructor.Name)
+                </td>
+                <td class="button-col-width">
+                    <button-container controller="@ViewContext.RouteData.Values["controller"].ToString()" actions="Edit,Details,Delete" use-glyphs="true" id="@item.Id"></button-container>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
